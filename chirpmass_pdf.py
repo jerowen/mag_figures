@@ -146,7 +146,7 @@ def chirpmass_peak_pdf(Mc):
     secondary = secondary_peak_pdf(MM, mm)
     JJ = dm2dMc(MM, mm)
 
-    yy = secondary #primary * secondary * JJ
+    yy = primary * secondary * JJ
     y = np.sum( (yy[1:]+yy[:-1]) * np.diff(mm, axis=0)/2. , axis=0)
     return y
 
@@ -159,7 +159,7 @@ def chirpmass_broken_pdf(Mc):
     secondary = secondary_broken_pdf(MM, mm)
     JJ = dm2dMc(MM, mm)
 
-    yy = secondary #primary * secondary * JJ
+    yy = primary * secondary * JJ
     y = np.sum( (yy[1:]+yy[:-1]) * np.diff(mm, axis=0)/2. , axis=0)
     return y
 
