@@ -96,7 +96,7 @@ def lumdist(z):
 
 def I_fact(Mc,z):
     T = G/c**3. * Msun_to_kg
-    fmax = 4397./2.**(6./5.)/(1+z)/Mc
+    fmax = 4397./2.**(5./6.)/(1+z)/Mc
     I_int = 1./ T**(1./3.) / freq**(7./3.) / S
 
     f = np.tile(freq,(fmax.shape[0],1)).transpose()
@@ -121,6 +121,8 @@ mc = np.linspace(1.,100.,101)
 
 theta1 = Theta(mc, 1.)
 theta2 = 5./rho0(1.,mc)
+
+print(theta1[theta1<4.]/theta2[theta1<4.])
 
 plt.plot(mc,theta1)
 plt.plot(mc,theta2, linestyle='--')
